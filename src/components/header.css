@@ -1,0 +1,137 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color-secondary);
+    height: 70vh;
+    display: flex;
+    justify-content: end;
+    padding: 0 25px;
+    flex-direction: column;
+    color: white;
+    transition: 2s ease;
+    z-index: 1000;
+    overflow: hidden;
+    font-family: 'lineNexa';
+    padding: 0 80px;
+}
+
+.logo img {
+    width: 600px;
+    transition: 2s ease;
+}
+
+.logo.scrolled img {
+    width: 180px;
+    transition: 2s ease;
+}
+
+.header.scrolled {
+    background-color: var(--bg-color-primary);
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    transition: 2s ease;
+}
+
+/* header a.scrolled {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+} */
+
+.background-header {
+    z-index: -5;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    transition: 2s ease;
+}
+
+.header.scrolled .background-header {
+    top: -100vw;
+}
+
+.bg_header {
+    opacity: 0.6;
+    z-index: -5;
+    width: 100vw;
+  }
+
+  .text-one {
+    font-family: 'lineNexa';
+    font-weight: bold;
+    font-size: 28px;
+    width: 60%;
+    text-indent: 80px;
+    color: var(--text-color-primary);
+    transition: 2s ease;
+    padding: 0 10px;
+    margin-top: -40px;
+  }
+
+  .header.scrolled .text-one {
+    display: none;
+    transition: 2s ease;
+  }
+
+  /* ########## NAV ######## */
+
+  header nav {
+    display: none;
+  }
+
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  header nav li {
+    list-style: none;
+  }
+
+  header nav li a {
+    color: white;
+    position: relative;
+    text-decoration: none;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .header.scrolled nav {
+    display: block;
+  }
+
+  .header.scrolled nav ul {
+    flex-direction: row;
+  }
+
+  .header.scrolled nav li a {
+    padding: 5px;
+    color: black;
+  }
+  
+  header nav ul a::before {
+    background: rgb(111, 126, 173);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+  }
+  
+  header nav ul a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }

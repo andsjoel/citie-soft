@@ -1,0 +1,56 @@
+import { useState, useEffect } from 'react';
+import "./header.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import bg_header from "../assets/images/header-background.png";
+import logo_header from "../assets/images/logoSite.png";
+
+const Header = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        AOS.init({
+            duration: 2000,
+            once: false,
+        });
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const isScrolled = window.scrollY > 0;
+          setScrolled(isScrolled);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
+    return (
+        <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+            <div className='background-header'>
+                <img className='bg_header' src={bg_header} alt='background do header' data-aos="zoom-out"/>
+            </div>
+            <a className={`logo ${scrolled ? 'scrolled' : ''}`} href='/#' data-aos="fade-down-left">
+                <img src={ logo_header } alt='logo da citisoft' />
+            </a>
+
+            <p className="text-one" data-aos="fade-up">
+                Soluções tecnológicas adaptadas aos desafios de suas necessidades.
+            </p>
+            <nav>
+                <ul>
+                   <li><a href=''>Início</a></li>
+                   <li><a href=''>Sobre</a></li>
+                   <li><a href=''>Soluções</a></li>
+                   <li><a href=''>Contato</a></li>
+                </ul>
+            </nav>
+
+        </header>
+    );
+}
+
+export default Header;
