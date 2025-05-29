@@ -91,7 +91,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
   }
 
   header nav li {
@@ -134,4 +133,63 @@ header {
   header nav ul a:hover::before {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  .menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+  @media (max-width: 768px) {
+header {
+    height: 120px;
+    padding: 0 20px;
+}
+
+.logo img {
+    width: 220px;
+}
+
+.logo.scrolled img {
+    width: 150px;
+}
+
+.header.scrolled {
+    background-color: var(--bg-color-primary);
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    transition: 2s ease;
+}
+
+  .text-one {
+    display: none;
+  }
+
+  
+  .text-one {
+    font-size: 1.2em;
+    text-indent: 20px;
+    width: 100%;
+  }
+
+  .header.scrolled > .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: black;
+  }
+
+  .header.scrolled > nav {
+    display: none;
+  }
+
   }

@@ -41,3 +41,13 @@ section {
   scroll-snap-align: start;
   padding: 0 80px;
 }
+
+@media (max-width: 768px) {
+  body {
+    height: 900px;
+  }
+
+  section {
+    padding: 0 20px;
+  }
+}
